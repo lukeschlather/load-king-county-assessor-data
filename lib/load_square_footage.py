@@ -3,8 +3,8 @@ import csv
 from itertools import islice
 import glob
 from pathlib import Path
-import pdb
 import sqlite3
+
 
 def main():
     CSV_ROOT = Path(Path.home(), 'king-county-assessor')
@@ -12,10 +12,6 @@ def main():
 
     retrieved_dates = glob.glob(str(CSV_ROOT / '*'))
 
-    data_files = {}
-
-
-    # note that year is really the yyyy-mm-dd when it was fetched
     with sqlite3.connect(DATABASE) as connection:
         create_premises_table = '''
           CREATE TABLE premises (
@@ -64,10 +60,9 @@ def main():
                         values
                     )
 
-    # It's not well documented, but 'SqFtTotLiving' appears to be the main key.
+    # None of this is well documented, but 'SqFtTotLiving' appears to be the main key in ResBldg.csv.
     # There doesn't appear to be a "total square footage" key.
     # SqFtTotBasement appears to include SqFtFinBasement (Total basement square feet > finished basement square feet)
     # * it's unclear if SqFtTotLiving includes SqFtFinBasement
     # all of the keys other than 'SqFtTotLiving' are frequently 0
-
-    sq_ft_keys = ('SqFt1stFloor', 'SqFtHalfFloor', 'SqFt2ndFloor', 'SqFtUpperFloor', 'SqFtUnfinFull', 'SqFtUnfinHalf', 'SqFtTotLiving', 'SqFtTotBasement', 'SqFtFinBasement', 'SqFtGarageBasement', 'SqFtGarageAttached', 'SqFtOpenPorch', 'SqFtEnclosedPorch', 'SqFtDeck')
+    # sq_ft_keys = ('SqFt1stFloor', 'SqFtHalfFloor', 'SqFt2ndFloor', 'SqFtUpperFloor', 'SqFtUnfinFull', 'SqFtUnfinHalf', 'SqFtTotLiving', 'SqFtTotBasement', 'SqFtFinBasement', 'SqFtGarageBasement', 'SqFtGarageAttached', 'SqFtOpenPorch', 'SqFtEnclosedPorch', 'SqFtDeck')

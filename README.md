@@ -18,7 +18,7 @@ sqlite3 ~/king-county-assessor.sqlite3
 I have an attached script at `sql/get_unit_count_by_year_built.sql`, but it's hardcoded to generate data for my `2018-01-10` dump so you'll have to edit it unless you have my 2018-01-10 dataset, but then you can do something like this:
 
 ```
-sqlite3 -csv ~/king-county-assessor.sqlite3 < sql/get_unit_count_by_year_built.sql > output/square_footage_by_year_built.csv
+sqlite3 -csv -header ~/king-county-assessor.sqlite3 < sql/get_unit_count_by_year_built.sql > output/square_footage_by_year_built.csv
 ```
 
 [This CSV has the output for that query.](output/square_footage_by_year_built.csv)

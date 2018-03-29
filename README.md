@@ -20,3 +20,5 @@ I have an attached script at `sql/get_unit_count_by_year_built.sql`, but it's ha
 ```
 sqlite3 -csv ~/king-county-assessor.sqlite3 < sql/get_unit_count_by_year_built.sql > output/square_footage_by_year_built.csv
 ```
+
+[This CSV has the output for that query.](output/square_footage_by_year_built.csv)

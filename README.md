@@ -22,3 +22,11 @@ sqlite3 -csv -header ~/king-county-assessor.sqlite3 < sql/get_unit_count_by_year
 ```
 
 [This CSV has the output for that query.](output/square_footage_by_year_built.csv)
+
+
+# Source Material
+
+* [King County Neighborhood Maps (Shapefile)](https://gis-kingcounty.opendata.arcgis.com/datasets/metro-neighborhoods-in-king-county--neighborhood-area?geometry=-122.506%2C47.576%2C-122.042%2C47.657)
+* [King County Assessor data](http://info.kingcounty.gov/assessor/DataDownload/default.aspx)
+* [King County Tax Parcels (Shapefile)](https://gis-kingcounty.opendata.arcgis.com/datasets/king-county-parcels--parcel-area?geometry=-122.315%2C47.603%2C-122.286%2C47.608)
+* [King County Incorporated Areas (Cities/Municipalities) (Shapefiles)](https://gis-kingcounty.opendata.arcgis.com/datasets/incorporated-areas-of-king-county--city-area?geometry=-123.731%2C47.129%2C-120.02%2C47.779)

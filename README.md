@@ -23,10 +23,28 @@ sqlite3 -csv -header ~/king-county-assessor.sqlite3 < sql/get_unit_count_by_year
 
 [This CSV has the output for that query.](output/square_footage_by_year_built.csv)
 
+# Assessor Files
+
+This is my understanding of the files, gleaned from conversations with other people but mostly from analysis of the data files and (very sparse) documentation provided by the Assessor's office.
+
+All files have the "Major","Minor" fields which together are the unique key for a parcel.
+
+## Building type files
+These files appear to be subsets of the parcels which only have a specific type of building. Detached single family homes are in the `EXTR_ResBldg` file. `EXTR_CondoComplex` and `EXTR_AptComplex` seem to be what they say (apartment and condominium complexes.)
+
+* `EXTR_ResBldg.csv`
+** The fields I am interested in this file are `YrBuilt`, `SqFtTotLiving`
+* `EXTR_CondoComplex` / `EXTR_AptComplex`
+** For my purposes these files are more or less the same. The keys I look at are `YrBuilt`, `AvgUnitSize`, `NbrUnits`
+* `EXTR_Parcel.csv`
+** This file has the most 
+* `EXTR_RPAcct_NoName.csv` seems to contain the actual appraisals.
+** This file contains `TaxableLandVal`,`TaxableImpsVal`,`ApprLandVal`,`ApprImpsVal`
+
 
 # Source Material
 
-* [King County Neighborhood Maps (Shapefile)](https://gis-kingcounty.opendata.arcgis.com/datasets/metro-neighborhoods-in-king-county--neighborhood-area?geometry=-122.506%2C47.576%2C-122.042%2C47.657)
 * [King County Assessor data](http://info.kingcounty.gov/assessor/DataDownload/default.aspx)
+* [King County Neighborhood Maps (Shapefile)](https://gis-kingcounty.opendata.arcgis.com/datasets/metro-neighborhoods-in-king-county--neighborhood-area?geometry=-122.506%2C47.576%2C-122.042%2C47.657)
 * [King County Tax Parcels (Shapefile)](https://gis-kingcounty.opendata.arcgis.com/datasets/king-county-parcels--parcel-area?geometry=-122.315%2C47.603%2C-122.286%2C47.608)
 * [King County Incorporated Areas (Cities/Municipalities) (Shapefiles)](https://gis-kingcounty.opendata.arcgis.com/datasets/incorporated-areas-of-king-county--city-area?geometry=-123.731%2C47.129%2C-120.02%2C47.779)

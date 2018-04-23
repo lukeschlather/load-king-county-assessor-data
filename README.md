@@ -32,14 +32,20 @@ All files have the "Major","Minor" fields which together are the unique key for 
 ## Building type files
 These files appear to be subsets of the parcels which only have a specific type of building. Detached single family homes are in the `EXTR_ResBldg` file. `EXTR_CondoComplex` and `EXTR_AptComplex` seem to be what they say (apartment and condominium complexes.)
 
-* `EXTR_ResBldg.csv`
-  * The fields I am interested in this file are `YrBuilt`, `SqFtTotLiving`
-* `EXTR_CondoComplex` / `EXTR_AptComplex`
-  * For my purposes these files are more or less the same. The keys I look at are `YrBuilt`, `AvgUnitSize`, `NbrUnits`
 * `EXTR_Parcel.csv`
   * This file has a lot of generic information common to all parcels, including `CurrentZoning`, `SqFtLot`, `DistrictName`. DistrictName seems to be the city/king county for unincorporated king county.
 * `EXTR_RPAcct_NoName.csv` seems to contain the actual appraisals. 
   * This file contains `TaxableLandVal`,`TaxableImpsVal`,`ApprLandVal`,`ApprImpsVal`
+* `EXTR_CondoComplex` / `EXTR_AptComplex`
+  * For my purposes these files are more or less the same. The keys I look at are `YrBuilt`, `AvgUnitSize`, `NbrUnits`
+* `EXTR_ResBldg.csv`
+  * The fields I am interested in this file are `YrBuilt`, `SqFtTotLiving`
+  'SqFtTotLiving' appears to be the main key in ResBldg.csv.
+  There may not be a "total square footage" key.
+  SqFtTotBasement appears to include SqFtFinBasement (Total basement square feet > finished basement square feet)
+  * it's unclear if SqFtTotLiving includes SqFtFinBasement
+  all of the keys other than 'SqFtTotLiving' are frequently 0
+  sq_ft_keys = ('SqFt1stFloor', 'SqFtHalfFloor', 'SqFt2ndFloor', 'SqFtUpperFloor', 'SqFtUnfinFull', 'SqFtUnfinHalf', 'SqFtTotLiving', 'SqFtTotBasement', 'SqFtFinBasement', 'SqFtGarageBasement', 'SqFtGarageAttached', 'SqFtOpenPorch', 'SqFtEnclosedPorch', 'SqFtDeck')
 
 
 # Source Material

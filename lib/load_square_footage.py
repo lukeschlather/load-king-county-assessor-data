@@ -73,11 +73,15 @@ def main():
                             row.get('Minor') or 0,
                             bool(unit_count_key),
                             int(row[unit_count_key]) if unit_count_key else 1,
-                            int(row[average_unit_size_key]),
+                            (
+                                int(row[average_unit_size_key]) * int(row[unit_count_key])
+                                if unit_count_key
+                                else
+                                int(row[average_unit_size_key])
+                            ),
                             filename,
                             yyyy_mm_dd,
                             row['YrBuilt'],
-                            
                         )
                         for row in rows
                     ]

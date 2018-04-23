@@ -33,13 +33,13 @@ All files have the "Major","Minor" fields which together are the unique key for 
 These files appear to be subsets of the parcels which only have a specific type of building. Detached single family homes are in the `EXTR_ResBldg` file. `EXTR_CondoComplex` and `EXTR_AptComplex` seem to be what they say (apartment and condominium complexes.)
 
 * `EXTR_ResBldg.csv`
-** The fields I am interested in this file are `YrBuilt`, `SqFtTotLiving`
+  * The fields I am interested in this file are `YrBuilt`, `SqFtTotLiving`
 * `EXTR_CondoComplex` / `EXTR_AptComplex`
-** For my purposes these files are more or less the same. The keys I look at are `YrBuilt`, `AvgUnitSize`, `NbrUnits`
+  * For my purposes these files are more or less the same. The keys I look at are `YrBuilt`, `AvgUnitSize`, `NbrUnits`
 * `EXTR_Parcel.csv`
-** This file has the most 
-* `EXTR_RPAcct_NoName.csv` seems to contain the actual appraisals.
-** This file contains `TaxableLandVal`,`TaxableImpsVal`,`ApprLandVal`,`ApprImpsVal`
+  * This file has a lot of generic information common to all parcels, including `CurrentZoning`, `SqFtLot`, `DistrictName`. DistrictName seems to be the city/king county for unincorporated king county.
+* `EXTR_RPAcct_NoName.csv` seems to contain the actual appraisals. 
+  * This file contains `TaxableLandVal`,`TaxableImpsVal`,`ApprLandVal`,`ApprImpsVal`
 
 
 # Source Material

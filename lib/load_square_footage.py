@@ -57,10 +57,10 @@ def main():
 
             for filename, average_unit_size_key, unit_count_key in (
                     ('EXTR_ResBldg.csv', 'SqFtTotLiving', None),
-                    # Removing this to simplify queries.
-                    # ('EXTR_CondoUnit2.csv', 'Footage', None),
+                    ('EXTR_CondoUnit2.csv', 'Footage', None),
                     ('EXTR_AptComplex.csv', 'AvgUnitSize', 'NbrUnits'),
-                    ('EXTR_CondoComplex.csv', 'AvgUnitSize', 'NbrUnits'),
+                    # Removing this to simplify queries. Theoretically redundant to EXTR_CondoUnit2.csv
+                    # ('EXTR_CondoComplex.csv', 'AvgUnitSize', 'NbrUnits'),
             ):
                 file_path = os.path.join(retrieved_date, filename)
                 with open(file_path, encoding='Windows-1252') as f:

@@ -51,7 +51,7 @@ def main():
           );
         '''
         connection.execute(create_parcels_appraisal)
-        
+
         for retrieved_date in retrieved_dates:
             yyyy_mm_dd = os.path.basename(retrieved_date)
 

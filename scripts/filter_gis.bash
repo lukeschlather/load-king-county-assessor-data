@@ -13,10 +13,6 @@ function make_csv() {
     spatialite -csv -header "$database" < "$sql" > "$output_file"
 }
 
-make_csv ~/king-county-gis/king-county-shapes.spatialite parcel_neighborhood
-
-make_csv ~/king-county-assessor.sqlite3 seattle_yearly_unit_counts
-make_csv ~/king-county-assessor.sqlite3 king_county_yearly_unit_counts
-
 make_csv ~/king-county-gis/king-county-shapes.spatialite parcel_city
+make_csv ~/king-county-gis/king-county-shapes.spatialite parcel_neighborhood
 

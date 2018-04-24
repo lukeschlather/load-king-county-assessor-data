@@ -7,3 +7,4 @@ rm ~/king-county-assessor.sqlite3
 sqlite3 -csv -header ~/king-county-assessor.sqlite3 \
         < "$PROJECT_ROOT/sql/get_unit_count_by_year_built.sql" \
         > "$PROJECT_ROOT/output/square_footage_by_year_built.csv"
+sqlite3 ~/king-county-assessor.sqlite3 < "$PROJECT_ROOT/sql/create_joined_view.sql"
